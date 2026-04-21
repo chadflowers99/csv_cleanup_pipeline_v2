@@ -36,24 +36,24 @@ Current job config is in `cafe_config.py` and runs in `structural` mode.
 ## Project Structure
 ```text
 csv_cleanup_pipeline_v2/
-|-- archive/
-|   |-- header_extractor.py
-|   `-- imdb_config.py
+|-- cafe_config.py
+|-- cleanup_engine.py
+|-- data_dictionary.py
+|-- head_tail.py
+|-- run_cleanup.py
+|-- summary_stats.py
 |-- input/
 |   `-- cafe_data.csv
 |-- output/
 |   |-- cafe_data_cleaned.csv
 |   `-- cafe_data_dictionary.csv
-|-- cafe_config.py
-|-- cleanup_engine.py
-|-- run_cleanup.py
-|-- head_tail.py
-|-- data_dictionary.py
-|-- summary_stats.py
+`-- archive/
+	|-- header_extractor.py
+	`-- imdb_config.py
 `-- README.md
 ```
 
-The `archive/` folder contains older dataset-specific experiments that are not part of the active cafe cleanup flow.
+Active runtime files live at the project root. The `archive/` folder contains older dataset-specific experiments that are not part of the active cafe cleanup flow.
 
 ---
 
