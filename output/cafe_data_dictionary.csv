@@ -1,0 +1,9 @@
+column,dtype,description
+transaction_id,str,Unique identifier for each transaction. Cleaned for encoding and whitespace.
+item,str,"Product purchased (Coffee, Cake, Smoothie, etc.). Contains occasional UNKNOWN or missing values."
+quantity,float64,Number of units purchased. Cleaned to numeric; invalid values converted to NaN.
+price_per_unit,float64,Price of a single unit. Cleaned to numeric.
+total_spent,float64,Total amount spent for the transaction. Cleaned to numeric; may be NaN if original value was invalid.
+payment_method,str,"Payment type (Cash, Credit Card, Digital Wallet, UNKNOWN). Cleaned for encoding and whitespace."
+location,str,"Store location (In-store, Takeaway, UNKNOWN). Missing values appear as NaN."
+transaction_date,str,"Date of transaction, parsed into ISO format (YYYY-MM-DD). Handles mixed formats."
