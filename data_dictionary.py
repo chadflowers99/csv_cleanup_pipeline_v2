@@ -4,8 +4,8 @@ import pandas as pd
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
-INPUT_FILE = BASE_DIR / "output" / "cafe_data_cleaned.csv"
-OUTPUT_FILE = BASE_DIR / "output" / "cafe_data_dictionary.csv"
+INPUT_FILE = BASE_DIR / "output" / "electronics_cleaned_data.csv"
+OUTPUT_FILE = BASE_DIR / "output" / "electronics_data_dictionary.csv"
 
 df = pd.read_csv(INPUT_FILE)
 
@@ -21,8 +21,8 @@ for col in df.columns:
     print(df[col].head(5).to_string())
 
 descriptions = {
-    "transaction_id": "Unique identifier for each transaction. Cleaned for encoding and whitespace.",
-    "item": "Product purchased (Coffee, Cake, Smoothie, etc.). Contains occasional UNKNOWN or missing values.",
+    "order_id": "Unique identifier for each order. Cleaned for encoding and whitespace.",
+    "item_name": "Product purchased (e.g., USB Cable, Keyboard, Mouse). Contains occasional UNKNOWN or missing values.",
     "quantity": "Number of units purchased. Cleaned to numeric; invalid values converted to NaN.",
     "price_per_unit": "Price of a single unit. Cleaned to numeric.",
     "total_spent": "Total amount spent for the transaction. Cleaned to numeric; may be NaN if original value was invalid.",

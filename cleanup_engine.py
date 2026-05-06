@@ -9,6 +9,10 @@ import os
 import re
 from typing import Dict, List
 import pandas as pd
+pd.set_option('display.max_columns', None)
+pd.set_option('display.width', 2000)
+pd.set_option('display.max_colwidth', None)
+pd.set_option('display.expand_frame_repr', False)
 
 
 # -----------------------------
@@ -37,6 +41,38 @@ def clean_text(text):
     return patch_corrupted_chars(normalize_encoding(text))
 
 
+def diagnostic_currency_handler(value):
+    """
+    Silver-Layer Normalization:
+    Extracts numeric floats from fractured currency strings.
+    """
+    if pd.isna(value) or value == "":
+        return None
+
+    # Cast to string to handle mixed types (floats/objects)
+    str_val = str(value).strip().lower()
+
+    # 1. Forensic Detection: Log if remediation is required
+    # (e.g., values containing '$', 'cash', or 'mobile')
+    needs_remediation = any(char in str_val for char in ['$', 'cash', 'mobile', 'card'])
+
+    try:
+        # Strip currency symbols and common noise words found in messy_cafe_sales
+        clean_val = (str_val.replace('$', '')
+                            .replace('cash', '')
+                            .replace('mobile', '')
+                            .replace('pay', '')
+                            .replace('card', '')
+                            .strip())
+
+        # 2. Coerce to float
+        return float(clean_val)
+
+    except ValueError:
+        # 3. Suppression Logic: If it can't be coerced, flag for S5 state review
+        return "S5_REVIEW_REQUIRED"
+
+
 # -----------------------------
 # Header Normalization
 # -----------------------------
@@ -48,6 +84,10 @@ def normalize_header(name: str) -> str:
     name = re.sub(r"[^0-9a-z]+", "_", name)
     name = re.sub(r"_+", "_", name)
     return name.strip("_")
+
+
+def normalize_column_list(columns):
+    return [normalize_header(c) for c in columns]
 
 
 # -----------------------------
@@ -83,12 +123,12 @@ def run_cleanup(config: Dict):
     delimiter = config.get("delimiter", ",")
     mode = config.get("mode", "strict").lower()
 
-    required = config.get("required_columns", [])
-    optional = config.get("optional_columns", [])
+    required = normalize_column_list(config.get("required_columns", []))
+    optional = normalize_column_list(config.get("optional_columns", []))
 
-    text_columns = config.get("text_columns", [])
-    numeric_columns = config.get("numeric_columns", [])
-    date_columns = config.get("date_columns", [])
+    text_columns = normalize_column_list(config.get("text_columns", []))
+    numeric_columns = normalize_column_list(config.get("numeric_columns", []))
+    date_columns = normalize_column_list(config.get("date_columns", []))
 
     recompute = config.get("recompute", {})
     validation_rules = config.get("validation_rules", [])
@@ -102,7 +142,7 @@ def run_cleanup(config: Dict):
     df = pd.read_csv(input_path, sep=delimiter, engine="python", encoding=encoding)
 
     print("\n=== RAW PREVIEW ===")
-    print(df.head(3))
+    print(df.head(3).to_string(index=False))
 
     # -----------------------------
     # Normalize headers
@@ -143,6 +183,23 @@ def run_cleanup(config: Dict):
             df[col] = df[col].astype(str).apply(clean_text).str.strip()
 
     # -----------------------------
+    # Title-case normalization
+    # -----------------------------
+    title_columns = config.get("title_columns", [])
+    for col in title_columns:
+        if col in df.columns:
+            df[col] = df[col].astype(str).str.strip().str.title()
+
+    # -----------------------------
+    # Value normalization (maps)
+    # -----------------------------
+    value_maps = config.get("value_maps", {})
+    for raw_col, mapping in value_maps.items():
+        col = normalize_header(raw_col)
+        if col in df.columns:
+            df[col] = df[col].replace(mapping)
+
+    # -----------------------------
     # Numeric cleaning
     # -----------------------------
     for col in numeric_columns:
@@ -153,6 +210,44 @@ def run_cleanup(config: Dict):
                 .replace("", pd.NA)
             )
             df[col] = pd.to_numeric(df[col], errors="coerce")
+
+    # -----------------------------
+    # ZIP code validation
+    # -----------------------------
+    zip_columns = normalize_column_list(config.get("zip_columns", []))
+    for col in zip_columns:
+        if col in df.columns:
+            df[col] = df[col].astype(str).str.strip()
+            invalid = ~df[col].str.match(r"^\d{5}$", na=False)
+            invalid_count = invalid.sum()
+            if invalid_count > 0:
+                print(f"[ZIP] {col}: {invalid_count} invalid values replaced with 'Unknown'")
+            df.loc[invalid, col] = "Unknown"
+
+    # -----------------------------
+    # Currency cleaning (forensic)
+    # -----------------------------
+    currency_columns = normalize_column_list(config.get("currency_columns", []))
+    s5_threshold = config.get("s5_threshold", 0.05)
+    remediation_stats = {}
+    for col in currency_columns:
+        if col in df.columns:
+            print(f"[DEBUG] Applying currency handler to: {col}")
+            original_values = df[col].astype(str)
+            df[col] = df[col].apply(diagnostic_currency_handler)
+            s5_count = (df[col] == "S5_REVIEW_REQUIRED").sum()
+            remediated = (
+                (original_values != df[col].astype(str))
+                & (df[col] != "S5_REVIEW_REQUIRED")
+                & (df[col].notnull())
+            ).sum()
+            remediation_stats[col] = int(remediated)
+            if s5_count > 0:
+                pct = s5_count / len(df)
+                flag = "[CRITICAL]" if pct > s5_threshold else "[WARN]"
+                print(f"{flag} {col}: {s5_count} rows ({pct:.1%}) diverted to S5 Forensic Buffer.")
+        else:
+            print(f"[WARN] Configured currency column not found after normalization: {col}")
 
     # -----------------------------
     # Date parsing
@@ -169,6 +264,26 @@ def run_cleanup(config: Dict):
             df[col] = df.eval(expr, engine="python")
         except Exception as e:
             print(f"[WARN] recompute failed for {col}: {e}")
+
+    # -----------------------------
+    # Data Quality Report
+    # -----------------------------
+    quality_columns = normalize_column_list(
+        config.get("quality_columns", numeric_columns + date_columns)
+    )
+    if quality_columns:
+        print("\n=== DATA QUALITY REPORT ===")
+        print(f"Total rows: {len(df)}")
+        needs_review_mask = pd.Series(False, index=df.index)
+        for col in quality_columns:
+            if col in df.columns:
+                null_count = df[col].isna().sum()
+                print(f"  Rows with missing {col}: {null_count}")
+                if null_count > 0:
+                    needs_review_mask |= df[col].isna()
+        for col, count in remediation_stats.items():
+            print(f"  Rows remediated in {col}: {count}")
+        print(f"  Rows needing review (any quality column null): {needs_review_mask.sum()}")
 
     # -----------------------------
     # Required column null diagnostics
@@ -259,7 +374,39 @@ def run_cleanup(config: Dict):
     output_dir = os.path.dirname(output_path)
     if output_dir:
         os.makedirs(output_dir, exist_ok=True)
-    df.to_csv(output_path, index=False, encoding="utf-8")
-    print("Cleaned file written to:", output_path)
+    try:
+        df.to_csv(output_path, index=False, encoding="utf-8")
+        print("Cleaned file written to:", output_path)
+    except PermissionError:
+        fallback_path = os.path.splitext(output_path)[0] + "_latest.csv"
+        df.to_csv(fallback_path, index=False, encoding="utf-8")
+        print("[WARN] Primary output file is locked/open. Wrote fallback file to:", fallback_path)
+
+    # --- Bifurcated export (Gold + S5 forensic buffer) ---
+    currency_col_for_split = currency_columns[0] if currency_columns else None
+    if currency_col_for_split and currency_col_for_split in df.columns:
+        mask_quarantine = (
+            (df[currency_col_for_split] == "S5_REVIEW_REQUIRED")
+            | (df[currency_col_for_split].isna())
+        )
+    else:
+        print("[WARN] No currency column found for S5 quarantine split.")
+        mask_quarantine = pd.Series(False, index=df.index)
+
+    df_gold = df[~mask_quarantine].copy()
+    df_s5 = df[mask_quarantine].copy()
+
+    gold_filename = config.get("gold_output_filename", "cafe_sales_GOLD.csv")
+    s5_filename = config.get("s5_output_filename", "S5_FORENSIC_BUFFER.csv")
+
+    gold_path = os.path.join(output_dir, gold_filename)
+    df_gold.to_csv(gold_path, index=False, encoding="utf-8")
+    print(f"[EXPORT] Gold Layer written to: {gold_path} ({len(df_gold)} rows)")
+
+    if not df_s5.empty:
+        s5_path = os.path.join(output_dir, s5_filename)
+        df_s5.to_csv(s5_path, index=False, encoding="utf-8")
+        print(f"[EXPORT] S5 Forensic Buffer written to: {s5_path} ({len(df_s5)} rows)")
+        print("         Action required: Client review needed for missing revenue signals.")
 
     
