@@ -3,7 +3,7 @@
 #   from cafe_config import config  # (if you create one)
 #   from electronics_config import config
 
-from electronics_config import config  # <-- swap this line to change dataset
+from electronics_config import config #from cafe_config import config  # <-- swap this line to change dataset
 
 from cleanup_engine import run_cleanup
 

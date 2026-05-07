@@ -4,7 +4,7 @@ import pandas as pd
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
-INPUT_FILE = BASE_DIR / "output" / "cafe_data_cleaned.csv"
+INPUT_FILE = BASE_DIR / "output" / "cafe_sales_GOLD.csv"  #electronics_sales_GOLD.csv
 
 df = pd.read_csv(INPUT_FILE)
 

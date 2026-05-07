@@ -1,0 +1,154 @@
+Order ID,Sale Date,Item Name,Category,Quantity,Unit Price,Payment Method,Customer Zip,Notes
+ORD-1001,03/07/2026, Latte ,,1,5.25, cash ,,
+ORD-1002,2026-03-15,Iced Tea,Drinks,2,3.7,Mobile,60602,duplicate?
+ORD-1003,2026-04-08,bagel,Food,1,3.5,Mobile,6060X,
+ORD-1004,03/15/2026,Bagel,Food,2,$3.25,,60603,duplicate?
+ORD-1005,2026-04-08,Bagel,Food,3,3.25,mobile pay,,duplicate?
+ORD-1006,2026-03-21,bagel,Food,1,$3.25,CARD,60604,manual entry
+ORD-1007,2026-04-07,Cappuccino,Drinks,2,5.25,,60601,
+,2026-03-25,Cappuccino,Drinks,1,5.0,mobile pay,60601,
+ORD-1009,,Americano,Drinks,3,3.5,,6060X,promo
+ORD-1010,2026-04-08,iced tea,Drinks,2,3.95,Card,60602,
+ORD-1011,03/09/2026,Latte,Drinks,1,5.25, cash ,6060X,duplicate?
+ORD-1012,2026-04-03, Americano ,drinks,,3.5,Card,60601,
+ORD-1013,2026-04-02,Mocha,Drinks,1,5.75,CARD,60602,manual entry
+ORD-1014,2026-03-28, Muffin ,Food,2,3.75,mobile pay,60603,
+ORD-1015,2026-03-12,Mocha,Drinks,2,5.5,Card,6060X,
+ORD-1016,2026-03-27,Cold Brew,drinks,1,4.75,Mobile,60604,promo
+ORD-1017,04/07/2026,muffin,food,two,3.5, cash ,60602,
+ORD-1018,03/05/2026, Iced Tea ,Drinks,1,$3.95, cash ,60601,manual entry
+ORD-1019,2026-03-16,smoothie,Drinks,3,6.5,Card,60604,
+ORD-1020,2026-03-14,smoothie,drinks,1,,CARD,,promo
+ORD-1021,2026-03-09,Smoothie,Drinks,1,6.25,Mobile,60602,promo
+ORD-1022,2026-03-06, Iced Tea ,Drinks,two,3.95,Cash,6060X,manual entry
+ORD-1023,2026-04-04,Iced Tea,,,3.95,,60601,promo
+ORD-1024,04/09/2026,Mocha,Drinks,2,5.5,CARD,60601,duplicate?
+ORD-1025,2026-03-18,Bagel,food,,3.25,CARD,60603,promo
+ORD-1026,2026-03-13, Mocha ,Drinks,2,,mobile pay,,promo
+ORD-1027,2026-03-03,Cold Brew,Drinks,1,5.0,CARD,,duplicate?
+ORD-1028,04/04/2026,Americano,Drinks,1,$3.75,Mobile,,promo
+ORD-1029,03/26/2026,Latte,Drinks,2,5.5,Cash,,
+ORD-1030,2026-03-19,Americano,Drinks,,$3.75, cash ,60604,duplicate?
+,03/06/2026,Latte,Drinks,2,5.5,Cash,60604,
+ORD-1032,2026-04-14,Latte,Drinks,two,5.25,Card,60604,duplicate?
+ORD-1033,"Mar 16, 2026",cappuccino,Drinks,two,,Mobile,60604,
+ORD-1034,2026-03-31,Iced Tea,Drinks,,3.95,Cash,60603,manual entry
+ORD-1035,2026-03-09,Latte,Drinks,2,5.25,CARD,60604,
+ORD-1036,2026-04-06,mocha,Drinks,,5.75,CARD,,
+ORD-1037,2026-03-02,Smoothie,Drinks,2,6.0, cash ,,
+ORD-1038,2026-03-12,Muffin,Food,1,3.25,,60604,promo
+ORD-1039,2026-04-04,Latte,drinks,two,,Card,60602,duplicate?
+ORD-1040,"Apr 06, 2026",Cold Brew,Drinks,1,4.75,mobile pay,60601,duplicate?
+ORD-1041,"Mar 26, 2026",Americano,Drinks,1,3.5,Mobile,6060X,
+ORD-1042,2026-03-05,Latte,Drinks,1,5.5,mobile pay,60604,duplicate?
+ORD-1043,04/09/2026,Muffin,Food,1,3.75,,60602,
+ORD-1044,2026-03-22,Americano,Drinks,two,3.5, cash ,6060X,promo
+ORD-1045,2026-03-27,Iced Tea,Drinks,1,3.95,Card,60603,duplicate?
+ORD-1046,2026-04-05,Muffin,Food,2,3.25,Mobile,60602,
+ORD-1047,2026-03-13,Mocha,Drinks,3,5.75,Card,60602,promo
+ORD-1048,2026-04-04, mocha ,Drinks,3,$5.75,,60604,
+ORD-1049,2026-03-04, Cold Brew ,drinks,2,4.75,mobile pay,60601,duplicate?
+ORD-1050,2026-04-08,Cappuccino,Drinks,2,4.75, cash ,60604,promo
+,2026-04-10,Smoothie,Drinks,1,6.25,CARD,6060X,
+ORD-1052,03/19/2026,Croissant,Food,2,,mobile pay,,duplicate?
+ORD-1053,2026-03-10,Muffin,Food,1,3.75,Card,60604,promo
+ORD-1054,2026-04-08,Muffin,Food,2,3.5,,,
+ORD-1055,2026-03-31,Cold Brew,Drinks,2,4.75,Card,60604,promo
+,2026-03-22,Muffin,Food,3,3.5,Card,60603,promo
+ORD-1057,"Apr 12, 2026", Bagel ,Food,1,3.25,CARD,60601,duplicate?
+,2026-03-08,Americano,Drinks,1,3.5,CARD,60601,duplicate?
+ORD-1059,"Apr 01, 2026",Latte,Drinks,two,5.25,CARD,,duplicate?
+ORD-1060,2026-03-05,Muffin,Food,2,3.5,Mobile,6060X,promo
+ORD-1061,2026-03-23,Smoothie,Drinks,two,6.0,Cash,,manual entry
+ORD-1062,03/31/2026,Mocha,Drinks,,,CARD,60601,duplicate?
+ORD-1063,2026-03-07,Iced Tea,Drinks,3,3.7,CARD,60603,promo
+ORD-1064,2026-03-21,Smoothie,Drinks,,6.0,mobile pay,60603,duplicate?
+ORD-1065,2026-03-29, Latte ,,,5.25,CARD,60602,duplicate?
+ORD-1066,2026-03-12,Iced Tea,Drinks,,3.95,CARD,6060X,promo
+ORD-1067,03/19/2026,Croissant,Food,2,3.75,CARD,6060X,promo
+ORD-1068,2026-03-07,Croissant,Food,2,3.75,mobile pay,60604,promo
+ORD-1069,2026-03-15,Cold Brew,Drinks,1,5.0,mobile pay,6060X,duplicate?
+ORD-1070,2026-03-09,Latte,Drinks,1,5.5,Mobile,,
+ORD-1071,03/19/2026, Americano ,Drinks,1,3.5,,6060X,manual entry
+ORD-1072,2026-04-04,Iced Tea,Drinks,3,4.2,Mobile,60601,duplicate?
+ORD-1073,2026-04-09,croissant,Food,1,4.25,Cash,60601,
+ORD-1074,2026-03-25,Americano,Drinks,two,3.75,Cash,60604,
+ORD-1075,2026-03-14,Croissant,food,,4.25,mobile pay,60603,
+ORD-1076,03/06/2026,Muffin,food,2,3.25,Cash,,duplicate?
+ORD-1077,03/22/2026,Latte,Drinks,2,5.25, cash ,60603,duplicate?
+ORD-1078,2026-04-07, Latte ,Drinks,1,5.25,CARD,60604,promo
+ORD-1079,2026-04-12,Iced Tea,drinks,1,3.95,mobile pay,60601,manual entry
+ORD-1080,2026-03-05,Croissant,Food,1,4.0,Mobile,60604,
+ORD-1081,2026-03-28,Smoothie,Drinks,,6.25,CARD,60603,promo
+ORD-1082,2026-03-06,bagel,Food,1,3.25, cash ,,promo
+ORD-1083,,Latte,Drinks,,5.0,Cash,60601,promo
+,03/28/2026,Iced Tea,Drinks,3,3.95,mobile pay,6060X,promo
+ORD-1085,2026-03-23,Cold Brew,Drinks,1,5.0,Card,60601,
+ORD-1086,03/20/2026,Mocha,,,6.0, cash ,60601,
+ORD-1087,2026-03-27, Americano ,Drinks,two,3.5,CARD,,promo
+,2026-03-14,Cold Brew,Drinks,2,4.75,mobile pay,60604,duplicate?
+ORD-1089,2026-03-05,Cappuccino,Drinks,,5.25,CARD,,manual entry
+ORD-1090,2026-03-21,Muffin,Food,2,$3.50,Card,60602,manual entry
+ORD-1091,2026-03-22, Smoothie ,Drinks,,6.5,,60603,promo
+ORD-1092,2026-04-08, Cappuccino ,Drinks,2,5.0, cash ,,manual entry
+ORD-1093,2026-03-29,Smoothie,,3,6.25,Mobile,60604,manual entry
+ORD-1094,2026-04-09,Cold Brew,Drinks,1,4.75,,,duplicate?
+,03/07/2026,Bagel,food,two,3.0,mobile pay,60604,manual entry
+ORD-1096,03/27/2026, Iced Tea ,Drinks,1,3.7, cash ,6060X,manual entry
+ORD-1097,2026-03-22,Americano,Drinks,2,3.75,Cash,,
+ORD-1098,04/12/2026,Americano,Drinks,,3.75, cash ,60603,
+ORD-1099,2026-03-13, bagel ,Food,2,3.0,,6060X,
+ORD-1100,2026-03-10,Cold Brew,Drinks,3,4.5,CARD,60603,duplicate?
+ORD-1101,2026-04-04,Croissant,Food,2,4.0, cash ,60604,manual entry
+ORD-1102,03/13/2026,americano,Drinks,,3.75,Card,6060X,
+ORD-1103,2026-04-02,Latte,Drinks,2,5.0,Card,60604,
+ORD-1104,2026-03-15,Muffin,Food,3,3.75,Mobile,60604,duplicate?
+ORD-1105,2026-03-17,croissant,Food,two,4.0,Cash,60603,
+ORD-1106,2026-03-05,Cold Brew,drinks,2,4.5,Cash,60603,manual entry
+ORD-1107,,cold brew,Drinks,3,4.75,CARD,60604,
+ORD-1108,2026-03-05,Muffin,Food,3,$3.50,Card,60603,
+ORD-1109,2026-04-10,bagel,,1,3.0,,60602,
+ORD-1110,2026-03-17,Bagel,,2,3.0,Mobile,60601,promo
+ORD-1111,,Muffin,Food,,3.25,mobile pay,60604,
+ORD-1112,03/21/2026,Muffin,Food,1,3.5,Card,6060X,promo
+,03/05/2026,Smoothie,Drinks,,6.25,,,manual entry
+ORD-1114,2026-04-11,Cold Brew,Drinks,1,,Mobile,60604,
+ORD-1115,,smoothie,Drinks,1,6.5,,60603,manual entry
+ORD-1116,2026-03-08,mocha,Drinks,2,5.75,,60603,promo
+,2026-03-24,latte,Drinks,2,5.25, cash ,,promo
+ORD-1118,,Croissant,Food,1,4.25,Mobile,6060X,
+ORD-1119,2026-03-09, Croissant ,Food,two,4.0,Mobile,6060X,duplicate?
+ORD-1120,2026-03-09, Bagel ,Food,2,3.5,Cash,6060X,
+ORD-1121,2026-03-06,Smoothie,Drinks,3,6.25,mobile pay,60601,manual entry
+ORD-1122,2026-04-13,Iced Tea,Drinks,2,3.95,Mobile,,duplicate?
+ORD-1123,03/09/2026, Bagel ,Food,3,3.0,Cash,60601,
+ORD-1124,"Mar 21, 2026",Americano,Drinks,,3.75,Mobile,60604,
+ORD-1125,2026-04-07,latte,Drinks,,5.25, cash ,60601,
+ORD-1126,2026-03-24,muffin,Food,1,3.25,CARD,,promo
+ORD-1127,2026-03-22,Smoothie,Drinks,1,6.5,Card,60602,promo
+ORD-1128,"Mar 21, 2026",Croissant,Food,two,4.0, cash ,,
+ORD-1129,03/22/2026,Croissant,Food,2,$4.00,Card,,manual entry
+,2026-04-03,Americano,Drinks,2,3.75,mobile pay,60601,duplicate?
+ORD-1131,2026-03-27,Cold Brew,Drinks,two,4.75, cash ,60602,
+ORD-1132,"Mar 30, 2026",Bagel,Food,two,3.25,mobile pay,60603,
+ORD-1133,"Mar 15, 2026",Croissant,Food,2,4.25,CARD,60603,
+ORD-1134,03/26/2026,Americano,Drinks,2,3.5,Mobile,60604,promo
+ORD-1135,2026-03-09,Croissant,food,2,4.25,Cash,60601,
+ORD-1136,,Muffin,Food,3,3.5,mobile pay,60602,promo
+ORD-1137,2026-04-11,Bagel,Food,2,3.25,,60602,
+ORD-1138,2026-03-03, Muffin ,Food,two,3.75, cash ,,manual entry
+ORD-1139,03/11/2026,Cappuccino,drinks,two,5.25,mobile pay,60602,duplicate?
+ORD-1140,03/26/2026,Smoothie,Drinks,,6.25,Cash,60604,promo
+ORD-1141,2026-04-11,Bagel,Food,2,3.5,mobile pay,60603,
+ORD-1142,2026-03-31,Americano,Drinks,3,3.75, cash ,6060X,duplicate?
+ORD-1143,"Mar 05, 2026",mocha,Drinks,1,6.0,Cash,60603,
+ORD-1144,"Mar 06, 2026", Croissant ,Food,1,3.75, cash ,60604,promo
+ORD-1145,2026-03-14,cold brew,drinks,,$4.75,Card,60604,
+ORD-1146,,Americano,Drinks,,3.5,mobile pay,,duplicate?
+ORD-1147,03/15/2026,Bagel,Food,1,3.25,CARD,60602,duplicate?
+ORD-1148,03/03/2026,Croissant,,3,4.0,Card,,
+ORD-1149,2026-03-29,Croissant,food,1,$4.00,,6060X,
+ORD-1150,2026-03-27,bagel,Food,3,3.25,CARD,,manual entry
+ORD-1013,2026-04-02,Mocha,Drinks,1,5.75,CARD,60602,manual entry
+ORD-1028,04/04/2026,Americano,Drinks,1,$3.75,Mobile,,promo
+ORD-1050,2026-04-08,Cappuccino,Drinks,2,4.75, cash ,60604,promo

@@ -98,6 +98,17 @@ config = {
     # S5 threshold: flag as CRITICAL if this fraction of rows can't be coerced
     "s5_threshold": 0.05,
 
+    # S5 Reason Codes: categorize missing data for forensic insights
+    "s5_reason_codes": {
+        "order_id": "MISSING_ORDER_ID",
+        "sale_date": "MISSING_DATE",
+        "quantity": "MISSING_QUANTITY",
+        "unit_price": "MISSING_PRICE",
+        "category": "MISSING_CATEGORY",
+        "payment_method": "MISSING_PAYMENT",
+        "customer_zip": "MISSING_ZIP",
+    },
+
     # Export filenames for bifurcated outputs
     "gold_output_filename": "electronics_sales_GOLD.csv",
     "s5_output_filename": "electronics_S5_FORENSIC_BUFFER.csv",

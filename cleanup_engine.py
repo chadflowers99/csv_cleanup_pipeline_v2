@@ -302,7 +302,13 @@ def run_cleanup(config: Dict):
     validation_fail_mask = pd.Series(False, index=df.index)
     for rule in validation_rules:
         try:
-            passed = df.eval(rule, engine="python")
+            # Coerce numeric columns to ensure type safety in comparisons
+            eval_df = df.copy()
+            for col in numeric_columns + currency_columns:
+                if col in eval_df.columns:
+                    eval_df[col] = pd.to_numeric(eval_df[col], errors="coerce")
+            
+            passed = eval_df.eval(rule, engine="python")
             validation_fail_mask |= ~passed
         except Exception as e:
             print(f"[WARN] validation rule failed '{rule}': {e}")
@@ -341,15 +347,87 @@ def run_cleanup(config: Dict):
     # Combine
     malformed_mask = malformed_required | validation_fail_mask | corruption_mask
     malformed_rows = df[malformed_mask].copy()
+    total_rows = len(df)
 
     print("TOTAL malformed rows:", malformed_mask.sum())
 
     # -----------------------------
-    # Strict mode drops malformed
+    # S5 Reason Codes: Categorize Why Rows Are Flagged
+    # -----------------------------
+    s5_reason_codes = config.get("s5_reason_codes", {})
+    currency_col_for_split = currency_columns[0] if currency_columns else None
+    
+    # Initialize reason tracking for ALL rows (malformed + S5)
+    df["_s5_reason"] = None
+    
+    if s5_reason_codes:
+        print("\n=== S5 REASON CODE ASSIGNMENT ===")
+        for col, reason_code in s5_reason_codes.items():
+            if col in df.columns:
+                missing_mask = df[col].isna()
+                df.loc[missing_mask, "_s5_reason"] = reason_code
+                missing_count = missing_mask.sum()
+                if missing_count > 0:
+                    print(f"  {col}: {missing_count} rows tagged as {reason_code}")
+        
+        # For malformed rows, add reason codes
+        malformed_rows = df[malformed_mask].copy()
+    
+    # Mark currency S5 rows with forensic code if not already marked
+    if currency_col_for_split and currency_col_for_split in df.columns:
+        s5_currency_mask = (
+            (df[currency_col_for_split] == "S5_REVIEW_REQUIRED")
+            | (df[currency_col_for_split].isna())
+        )
+        df.loc[s5_currency_mask & df["_s5_reason"].isna(), "_s5_reason"] = "CURRENCY_FORENSIC"
+
+    # Strict-mode reason assignment: every malformed row gets an explicit code.
+    df["_strict_reason"] = None
+    df.loc[malformed_required, "_strict_reason"] = "STRICT_NULL_REMOVAL"
+    df.loc[validation_fail_mask, "_strict_reason"] = "SCHEMA_VIOLATION"
+    df.loc[corruption_mask, "_strict_reason"] = "ENCODING_CORRUPTION"
+    df.loc[malformed_mask & df["_strict_reason"].isna(), "_strict_reason"] = "STRICT_RULE_FAILED"
+    # Keep _s5_reason populated for summary/reporting even when config reason codes are sparse.
+    strict_fill_mask = malformed_mask & df["_s5_reason"].isna()
+    df.loc[strict_fill_mask, "_s5_reason"] = df.loc[strict_fill_mask, "_strict_reason"]
+
+    # Snapshot strict exception ledger before any row drops.
+    df_s5_strict_all = df[malformed_mask].copy()
+
+    # --- Bifurcated export (Gold + S5 forensic buffer) BEFORE strict mode drops rows ---
+    currency_col_for_split = currency_columns[0] if currency_columns else None
+    if currency_col_for_split and currency_col_for_split in df.columns:
+        mask_quarantine = (
+            (df[currency_col_for_split] == "S5_REVIEW_REQUIRED")
+            | (df[currency_col_for_split].isna())
+        )
+    else:
+        print("[WARN] No currency column found for S5 quarantine split.")
+        mask_quarantine = pd.Series(False, index=df.index)
+
+    df_s5_pre_strict = df[mask_quarantine].copy()
+    df_s5_export = df_s5_pre_strict.copy()
+
+    # -----------------------------
+    # Mode: Strict vs Structural
     # -----------------------------
     if mode == "strict":
         df = df[~malformed_mask].copy()
+        df_s5_export = df_s5_strict_all.copy()
         print("Strict mode: dropped", malformed_mask.sum(), "rows")
+    elif mode == "structural":
+        # Flag every malformed row with its reason — keep all rows in Gold
+        df["_row_flag"] = None
+        df.loc[malformed_required, "_row_flag"] = "MISSING_REQUIRED"
+        df.loc[validation_fail_mask, "_row_flag"] = "VALIDATION_FAILURE"
+        df.loc[corruption_mask, "_row_flag"] = "CORRUPTED_VALUE"
+        # S5 reason code takes precedence if already set
+        flagged = df["_row_flag"].notna()
+        df.loc[flagged & df["_s5_reason"].notna(), "_row_flag"] = df.loc[flagged & df["_s5_reason"].notna(), "_s5_reason"]
+        flag_count = df["_row_flag"].notna().sum()
+        print(f"Structural mode: flagged {flag_count} rows (preserved in Gold with _row_flag)")
+    else:
+        print(f"[WARN] Unknown mode '{mode}' — no rows dropped or flagged.")
 
     # -----------------------------
     # Export malformed rows
@@ -362,6 +440,7 @@ def run_cleanup(config: Dict):
         malformed_rows.to_csv(malformed_path, index=False, encoding="utf-8")
         print("Malformed rows written to:", malformed_path)
     else:
+        malformed_path = None
         print("No malformed rows detected.")
 
     # --- Drop rows that are fully empty ---
@@ -370,43 +449,129 @@ def run_cleanup(config: Dict):
     # --- Drop stray unnamed columns ---
     df = df.loc[:, ~df.columns.str.startswith("unnamed")]
 
-    # --- Export cleaned file ---
+    # Export Gold layer
+    df_gold = df.copy()
+    if mode == "structural":
+        # Keep _row_flag for downstream triage, strip other internals
+        internal_cols = [c for c in df_gold.columns if c.startswith("_") and c != "_row_flag"]
+        df_gold = df_gold.drop(columns=internal_cols, errors="ignore")
+    else:
+        # Strict: strip all internal tracking columns — Gold is clean
+        df_gold = df_gold.loc[:, ~df_gold.columns.str.startswith("_")]
+
+    gold_filename = config.get("gold_output_filename", "cafe_sales_GOLD.csv")
+    s5_filename = config.get("s5_output_filename", "cafe_sales_S5_FORENSIC_BUFFER.csv")
+
     output_dir = os.path.dirname(output_path)
     if output_dir:
         os.makedirs(output_dir, exist_ok=True)
-    try:
-        df.to_csv(output_path, index=False, encoding="utf-8")
-        print("Cleaned file written to:", output_path)
-    except PermissionError:
-        fallback_path = os.path.splitext(output_path)[0] + "_latest.csv"
-        df.to_csv(fallback_path, index=False, encoding="utf-8")
-        print("[WARN] Primary output file is locked/open. Wrote fallback file to:", fallback_path)
-
-    # --- Bifurcated export (Gold + S5 forensic buffer) ---
-    currency_col_for_split = currency_columns[0] if currency_columns else None
-    if currency_col_for_split and currency_col_for_split in df.columns:
-        mask_quarantine = (
-            (df[currency_col_for_split] == "S5_REVIEW_REQUIRED")
-            | (df[currency_col_for_split].isna())
-        )
-    else:
-        print("[WARN] No currency column found for S5 quarantine split.")
-        mask_quarantine = pd.Series(False, index=df.index)
-
-    df_gold = df[~mask_quarantine].copy()
-    df_s5 = df[mask_quarantine].copy()
-
-    gold_filename = config.get("gold_output_filename", "cafe_sales_GOLD.csv")
-    s5_filename = config.get("s5_output_filename", "S5_FORENSIC_BUFFER.csv")
-
+    
     gold_path = os.path.join(output_dir, gold_filename)
     df_gold.to_csv(gold_path, index=False, encoding="utf-8")
     print(f"[EXPORT] Gold Layer written to: {gold_path} ({len(df_gold)} rows)")
 
-    if not df_s5.empty:
+    # Export S5 buffer from pre-strict data
+    if not df_s5_export.empty:
         s5_path = os.path.join(output_dir, s5_filename)
-        df_s5.to_csv(s5_path, index=False, encoding="utf-8")
-        print(f"[EXPORT] S5 Forensic Buffer written to: {s5_path} ({len(df_s5)} rows)")
+        # Keep reason codes in S5 for audit trail
+        df_s5_export.to_csv(s5_path, index=False, encoding="utf-8")
+        print(f"[EXPORT] S5 Forensic Buffer written to: {s5_path} ({len(df_s5_export)} rows)")
+        if "_s5_reason" in df_s5_export.columns:
+            reason_summary = df_s5_export["_s5_reason"].value_counts().to_dict()
+            print(f"         Quarantine reasons: {reason_summary}")
         print("         Action required: Client review needed for missing revenue signals.")
+
+    # -----------------------------
+    # Auto-generate Markdown Report
+    # -----------------------------
+    from datetime import date
+
+    dataset_name = os.path.splitext(os.path.basename(input_path))[0]
+    report_filename = f"{dataset_name}_cleanup_report.md"
+    report_path = os.path.join(output_dir, report_filename)
+
+    reason_md = ""
+    if "_s5_reason" in df_s5_export.columns and not df_s5_export.empty:
+        reason_counts = df_s5_export["_s5_reason"].value_counts().to_dict()
+        rows = "\n".join(f"| {code} | {count} |" for code, count in reason_counts.items())
+        reason_md = f"""
+## S5 Quarantine Reason Codes
+
+| Reason Code | Count |
+|---|---|
+{rows}
+"""
+
+    quality_md = ""
+    if quality_columns:
+        q_rows = []
+        for col in quality_columns:
+            if col in df.columns:
+                nulls = df[col].isna().sum()
+                status = "✓" if nulls == 0 else "⚠️"
+                q_rows.append(f"| {col} | {nulls} | {status} |")
+        quality_md = "## Data Quality Report\n\n| Column | Null Count | Status |\n|---|---|---|\n" + "\n".join(q_rows)
+
+    s5_rows_count = len(df_s5_export)
+    malformed_count = int(malformed_mask.sum())
+    gold_count = len(df_gold)
+    input_count = total_rows
+
+    if mode == "structural":
+        flag_count = int(df["_row_flag"].notna().sum()) if "_row_flag" in df.columns else 0
+        mode_row = f"| Rows flagged (_row_flag) | {flag_count:,} |"
+        mode_note = "> **Structural mode:** All rows preserved in Gold. Malformed rows are flagged with `_row_flag` for downstream triage."
+    else:
+        mode_row = f"| Rows dropped (strict) | {malformed_count:,} |"
+        mode_note = "> **Strict mode:** Malformed rows removed from Gold layer and written to the malformed rows audit file."
+
+    report_md = f"""# {dataset_name} Cleanup Report
+
+**Date:** {date.today()}
+**Script:** `run_cleanup.py`
+**Dataset:** `{os.path.basename(input_path)}`
+**Config:** `{dataset_name.replace("_data", "")}_config.py`
+**Mode:** `{mode.upper()}`
+**Status:** ✅ COMPLETED
+
+{mode_note}
+
+---
+
+## Row Summary
+
+| Metric | Count |
+|---|---|
+| Input rows | {input_count:,} |
+| Malformed rows detected | {malformed_count:,} |
+| Validation failures (subset of malformed) | {int(validation_fail_mask.sum()):,} |
+{mode_row}
+| S5 Forensic Buffer rows | {s5_rows_count:,} |
+| **Gold Layer rows** | **{gold_count:,}** |
+
+---
+
+{quality_md}
+
+---
+{reason_md}
+---
+
+## Output Files
+
+| File | Purpose |
+|---|---|
+| `{gold_filename}` | {"All rows with _row_flag on malformed (structural)" if mode == "structural" else "Clean, validated transactions (strict)"} |
+| `{s5_filename}` | Quarantined rows with reason codes |
+| `{os.path.basename(malformed_path) if malformed_path else "N/A"}` | Dropped rows audit trail |
+
+---
+
+**Audit Trail Integrity:** ✅ Nothing is silently discarded.
+"""
+
+    with open(report_path, "w", encoding="utf-8") as f:
+        f.write(report_md)
+    print(f"[REPORT] Markdown report written to: {report_path}")
 
     

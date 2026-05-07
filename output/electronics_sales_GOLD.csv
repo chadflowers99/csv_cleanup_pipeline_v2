@@ -1,156 +1,201 @@
-order_id,sale_date,quantity,unit_price,category,payment_method,item_name,customer_zip
-ORD-1000,,,99.99,,Card,USB Cable,Unknown
-ORD-1001,,,19.99,Electronics,Cash,Mouse,90210
-ORD-1002,2026-01-04,2.0,99.99,,Cash,Monitor,Unknown
-ORD-1003,2026-01-05,1.0,99.99,,Cash,Headphones,Unknown
-ORD-1004,2026-03-02,2.0,49.99,,Mobile,Monitor,Unknown
-ORD-1006,2026-02-04,3.0,99.99,,Mobile,Keyboard,90210
-ORD-1007,2026-01-03,,99.99,Accessories,Cash,Mouse,Unknown
-ORD-1008,,,29.99,Electronics,Mobile,Monitor,10001
-ORD-1011,2026-01-12,2.0,99.99,Accessories,Card,Mouse,Unknown
-ORD-1012,,1.0,29.99,Accessories,,USB Cable,10001
-ORD-1014,,,19.99,Electronics,Card,Keyboard,90210
-ORD-1015,2026-01-29,3.0,19.99,Electronics,Cash,USB Cable,Unknown
-ORD-1016,,,49.99,Accessories,Mobile,Laptop,Unknown
-ORD-1017,2026-02-23,2.0,49.99,Accessories,Cash,Headphones,Unknown
-ORD-1019,2026-02-14,,19.99,Accessories,Card,Laptop,90210
-ORD-1020,,,49.99,,Mobile,Mouse,10001
-ORD-1021,2026-02-15,,99.99,,Card,Headphones,90210
-ORD-1023,2026-02-21,3.0,49.99,Accessories,,USB Cable,Unknown
-ORD-1024,,2.0,29.99,Electronics,,Mouse,90210
-ORD-1026,,,49.99,Electronics,Card,Laptop,10001
-ORD-1027,,3.0,29.99,Electronics,Card,Mouse,Unknown
-ORD-1028,2026-01-24,3.0,29.99,Electronics,Cash,Keyboard,90210
-ORD-1029,,2.0,29.99,Accessories,Card,USB Cable,10001
-ORD-1030,,,29.99,Electronics,Card,Mouse,Unknown
-ORD-1032,,2.0,49.99,Accessories,Mobile,Laptop,Unknown
-ORD-1033,2026-01-03,2.0,49.99,Accessories,Card,Laptop,10001
-ORD-1034,,3.0,49.99,Electronics,Mobile,USB Cable,Unknown
-ORD-1035,,3.0,29.99,Electronics,,Headphones,Unknown
-ORD-1036,2026-01-11,,99.99,Accessories,Card,Laptop,90210
-ORD-1038,,1.0,49.99,Electronics,Mobile,Laptop,10001
-ORD-1040,,3.0,49.99,,Cash,Mouse,10001
-ORD-1041,,1.0,29.99,Accessories,Cash,Laptop,10001
-ORD-1043,2026-01-19,,29.99,Electronics,,USB Cable,Unknown
-ORD-1044,2026-02-26,,99.99,Accessories,Card,Laptop,90210
-ORD-1045,2026-02-02,,99.99,Electronics,Card,Keyboard,10001
-ORD-1046,,,19.99,Electronics,Cash,Monitor,Unknown
-ORD-1047,2026-03-02,3.0,19.99,Accessories,Mobile,Monitor,Unknown
-ORD-1048,2026-01-26,,99.99,Accessories,Card,Monitor,Unknown
-ORD-1049,2026-02-06,,49.99,Accessories,,Laptop,90210
-,2026-02-17,2.0,29.99,Electronics,Mobile,USB Cable,Unknown
-,,3.0,19.99,Electronics,,Monitor,10001
-ORD-1052,2026-02-20,2.0,49.99,Electronics,,Laptop,Unknown
-ORD-1053,2026-01-14,,29.99,Electronics,Card,Laptop,Unknown
-ORD-1054,2026-02-23,,49.99,Accessories,Cash,Keyboard,Unknown
-ORD-1055,2026-01-10,3.0,19.99,,Card,Headphones,Unknown
-ORD-1056,2026-02-01,,49.99,Electronics,Mobile,Monitor,10001
-ORD-1057,,3.0,99.99,Electronics,Cash,Headphones,Unknown
-ORD-1058,2026-01-09,,19.99,Electronics,,USB Cable,Unknown
-ORD-1060,2026-01-20,,99.99,Accessories,Cash,Mouse,10001
-ORD-1061,,,19.99,Electronics,Card,Laptop,Unknown
-ORD-1062,2026-02-25,1.0,19.99,Electronics,Mobile,Mouse,90210
-ORD-1065,2026-02-17,2.0,99.99,Electronics,Mobile,Headphones,10001
-ORD-1066,2026-01-14,,29.99,,,Monitor,Unknown
-ORD-1067,,,99.99,Accessories,Card,USB Cable,Unknown
-ORD-1068,2026-02-02,,19.99,,Card,Headphones,90210
-ORD-1069,2026-02-05,2.0,99.99,Accessories,Cash,USB Cable,90210
-ORD-1071,2026-01-20,,19.99,Accessories,Cash,Laptop,Unknown
-ORD-1072,2026-02-08,,99.99,Accessories,Card,USB Cable,10001
-ORD-1073,,3.0,99.99,,Card,Laptop,Unknown
-,2026-01-22,1.0,19.99,Accessories,Card,Mouse,90210
-ORD-1076,2026-01-04,3.0,49.99,,Card,Laptop,10001
-ORD-1077,2026-02-09,3.0,29.99,Accessories,Card,USB Cable,Unknown
-ORD-1078,2026-02-12,3.0,29.99,Electronics,,Laptop,Unknown
-ORD-1079,2026-02-05,,29.99,Electronics,,USB Cable,Unknown
-ORD-1080,,,29.99,,Cash,Keyboard,Unknown
-ORD-1084,,3.0,99.99,Accessories,Card,Headphones,90210
-ORD-1085,2026-01-27,,29.99,Electronics,Card,Mouse,Unknown
-ORD-1086,2026-02-13,,99.99,Accessories,Cash,Headphones,90210
-ORD-1090,2026-01-24,1.0,49.99,Electronics,Card,Monitor,Unknown
-,2026-03-01,,99.99,Electronics,,Mouse,Unknown
-ORD-1092,2026-02-19,,29.99,Accessories,Card,Mouse,10001
-ORD-1093,,3.0,19.99,Accessories,Card,Laptop,10001
-ORD-1094,2026-02-21,2.0,19.99,Electronics,,USB Cable,10001
-ORD-1096,2026-02-15,1.0,29.99,Accessories,Cash,Monitor,Unknown
-ORD-1097,2026-01-20,,99.99,Electronics,Card,Monitor,90210
-ORD-1099,2026-01-21,,49.99,Accessories,Cash,Keyboard,90210
-ORD-1101,2026-01-24,3.0,49.99,,Mobile,USB Cable,Unknown
-ORD-1102,2026-01-13,1.0,49.99,,Cash,Monitor,10001
-ORD-1103,,3.0,49.99,Accessories,Card,Monitor,10001
-ORD-1104,2026-02-06,1.0,99.99,Accessories,Cash,Laptop,Unknown
-ORD-1105,2026-01-12,,99.99,Accessories,Card,Laptop,Unknown
-ORD-1106,2026-02-03,1.0,49.99,Accessories,Card,Monitor,Unknown
-ORD-1107,2026-02-14,,19.99,Accessories,Mobile,Monitor,10001
-ORD-1108,,1.0,29.99,,,Mouse,Unknown
-ORD-1109,,,29.99,,Cash,Keyboard,10001
-ORD-1110,2026-02-02,,19.99,Accessories,Cash,Mouse,90210
-ORD-1111,,1.0,99.99,Accessories,,Laptop,10001
-ORD-1112,2026-02-05,,19.99,Electronics,Mobile,Mouse,Unknown
-,,,19.99,Accessories,Card,Monitor,Unknown
-ORD-1115,2026-02-09,,99.99,Electronics,,USB Cable,Unknown
-,2026-02-14,,29.99,Accessories,Card,Mouse,Unknown
-,2026-01-06,,49.99,Electronics,Mobile,Headphones,10001
-ORD-1118,,1.0,29.99,Electronics,Cash,Mouse,10001
-ORD-1119,,1.0,99.99,Electronics,,USB Cable,Unknown
-ORD-1120,2026-02-08,2.0,49.99,Electronics,Mobile,Monitor,90210
-ORD-1121,,,99.99,Accessories,Card,Monitor,10001
-ORD-1122,2026-02-08,3.0,29.99,Electronics,,Monitor,10001
-,2026-02-24,1.0,49.99,Accessories,,Keyboard,Unknown
-,2026-02-06,,49.99,Electronics,Cash,Headphones,Unknown
-ORD-1126,2026-01-10,3.0,19.99,Electronics,Mobile,USB Cable,10001
-ORD-1127,2026-02-28,,29.99,,,Monitor,Unknown
-ORD-1128,2026-02-06,3.0,19.99,Electronics,,Keyboard,Unknown
-ORD-1129,,3.0,99.99,Electronics,Cash,Monitor,10001
-ORD-1130,2026-01-10,,49.99,Accessories,,USB Cable,Unknown
-ORD-1131,2026-02-16,1.0,99.99,,Card,Headphones,10001
-ORD-1132,2026-02-18,,29.99,Accessories,Card,Keyboard,10001
-ORD-1134,2026-01-08,2.0,49.99,Accessories,Mobile,USB Cable,Unknown
-,2026-02-04,,29.99,,Card,Monitor,Unknown
-ORD-1136,2026-01-30,,49.99,Accessories,Cash,USB Cable,10001
-ORD-1138,2026-01-23,,99.99,,Mobile,USB Cable,Unknown
-ORD-1139,2026-01-21,,49.99,Electronics,Card,USB Cable,Unknown
-ORD-1140,,2.0,19.99,Accessories,Cash,Laptop,Unknown
-ORD-1141,2026-01-29,,19.99,Electronics,Card,Mouse,Unknown
-ORD-1142,2026-02-16,2.0,99.99,Accessories,,Mouse,Unknown
-ORD-1144,,2.0,99.99,,Card,Laptop,Unknown
-ORD-1145,,,99.99,Electronics,Card,Headphones,90210
-ORD-1146,2026-01-24,1.0,49.99,Electronics,Card,USB Cable,Unknown
-ORD-1147,2026-02-25,3.0,49.99,Accessories,,Mouse,90210
-ORD-1148,,,49.99,,Cash,Headphones,Unknown
-ORD-1149,2026-02-17,,49.99,Accessories,Cash,USB Cable,Unknown
-ORD-1156,2026-02-14,3.0,49.99,Electronics,Card,Monitor,Unknown
-ORD-1157,2026-02-01,1.0,19.99,,Cash,Monitor,Unknown
-ORD-1158,2026-02-08,1.0,19.99,Electronics,Card,Mouse,10001
-ORD-1159,,,29.99,Electronics,,Laptop,90210
-ORD-1160,2026-01-08,1.0,99.99,Accessories,Card,Headphones,Unknown
-ORD-1162,2026-02-10,2.0,99.99,Accessories,,Monitor,Unknown
-,,3.0,99.99,Accessories,Mobile,USB Cable,Unknown
-,2026-02-06,1.0,99.99,Electronics,Cash,USB Cable,90210
-ORD-1165,2026-01-12,,99.99,Accessories,Mobile,Headphones,Unknown
-,2026-01-25,,49.99,Electronics,,Mouse,Unknown
-ORD-1168,2026-02-18,,49.99,Electronics,Mobile,Headphones,Unknown
-ORD-1169,2026-02-06,2.0,49.99,Electronics,Card,USB Cable,10001
-ORD-1170,2026-01-10,3.0,19.99,,Mobile,USB Cable,90210
-ORD-1171,,3.0,99.99,Accessories,Cash,Keyboard,10001
-,2026-01-24,,99.99,Electronics,Card,Laptop,Unknown
-ORD-1173,,3.0,49.99,Accessories,Card,USB Cable,Unknown
-ORD-1174,2026-01-15,,99.99,Accessories,Cash,Keyboard,10001
-ORD-1175,,3.0,99.99,Electronics,Cash,USB Cable,10001
-ORD-1177,2026-01-15,,29.99,Accessories,,Keyboard,Unknown
-ORD-1179,2026-01-29,,49.99,Accessories,Cash,Keyboard,10001
-ORD-1180,2026-02-11,1.0,49.99,,Mobile,Monitor,Unknown
-,2026-01-17,2.0,19.99,Accessories,Card,Mouse,90210
-ORD-1182,2026-01-29,,29.99,Electronics,Cash,Keyboard,10001
-ORD-1183,2026-02-06,2.0,29.99,Electronics,,Monitor,90210
-ORD-1184,2026-02-28,,29.99,Electronics,,Monitor,90210
-ORD-1185,2026-03-01,,29.99,Accessories,Mobile,Monitor,Unknown
-ORD-1186,2026-01-26,2.0,29.99,,,Keyboard,Unknown
-,2026-03-01,2.0,19.99,,Mobile,Mouse,Unknown
-ORD-1191,2026-01-30,2.0,19.99,Accessories,Mobile,Keyboard,90210
-ORD-1192,2026-01-28,1.0,19.99,Electronics,Card,Mouse,Unknown
-ORD-1193,2026-01-29,3.0,49.99,,,Mouse,90210
-ORD-1194,2026-02-07,1.0,19.99,Electronics,Cash,Laptop,90210
-ORD-1196,2026-02-26,,99.99,Electronics,,Laptop,Unknown
-ORD-1197,2026-01-15,,19.99,Accessories,Card,Mouse,90210
-ORD-1198,2026-02-08,2.0,49.99,Electronics,,Laptop,Unknown
+order_id,sale_date,quantity,unit_price,category,payment_method,item_name,customer_zip,_row_flag
+ORD-1000,,,99.99,,Card,USB Cable,Unknown,MISSING_CATEGORY
+ORD-1001,,,19.99,Electronics,Cash,Mouse,90210,MISSING_QUANTITY
+ORD-1002,2026-01-04,2.0,99.99,,Cash,Monitor,Unknown,MISSING_CATEGORY
+ORD-1003,2026-01-05,1.0,99.99,,Cash,Headphones,Unknown,MISSING_CATEGORY
+ORD-1004,2026-03-02,2.0,49.99,,Mobile,Monitor,Unknown,MISSING_CATEGORY
+ORD-1005,,2.0,,Electronics,,Laptop,10001,MISSING_PAYMENT
+ORD-1006,2026-02-04,3.0,99.99,,Mobile,Keyboard,90210,MISSING_CATEGORY
+ORD-1007,2026-01-03,,99.99,Accessories,Cash,Mouse,Unknown,MISSING_QUANTITY
+ORD-1008,,,29.99,Electronics,Mobile,Monitor,10001,MISSING_QUANTITY
+ORD-1009,2026-02-23,2.0,,,,Mouse,Unknown,MISSING_PAYMENT
+ORD-1010,2026-01-13,2.0,,Electronics,,USB Cable,Unknown,MISSING_PAYMENT
+ORD-1011,2026-01-12,2.0,99.99,Accessories,Card,Mouse,Unknown,
+ORD-1012,,1.0,29.99,Accessories,,USB Cable,10001,MISSING_PAYMENT
+ORD-1013,2026-02-06,,,Accessories,Cash,Headphones,90210,MISSING_PRICE
+ORD-1014,,,19.99,Electronics,Card,Keyboard,90210,MISSING_QUANTITY
+ORD-1015,2026-01-29,3.0,19.99,Electronics,Cash,USB Cable,Unknown,
+ORD-1016,,,49.99,Accessories,Mobile,Laptop,Unknown,MISSING_QUANTITY
+ORD-1017,2026-02-23,2.0,49.99,Accessories,Cash,Headphones,Unknown,
+ORD-1018,,,,Accessories,Cash,Laptop,90210,MISSING_PRICE
+ORD-1019,2026-02-14,,19.99,Accessories,Card,Laptop,90210,MISSING_QUANTITY
+ORD-1020,,,49.99,,Mobile,Mouse,10001,MISSING_CATEGORY
+ORD-1021,2026-02-15,,99.99,,Card,Headphones,90210,MISSING_CATEGORY
+ORD-1022,,,,Electronics,,Mouse,10001,MISSING_PAYMENT
+ORD-1023,2026-02-21,3.0,49.99,Accessories,,USB Cable,Unknown,MISSING_PAYMENT
+ORD-1024,,2.0,29.99,Electronics,,Mouse,90210,MISSING_PAYMENT
+ORD-1025,2026-01-23,3.0,,,Card,Headphones,90210,MISSING_CATEGORY
+ORD-1026,,,49.99,Electronics,Card,Laptop,10001,MISSING_QUANTITY
+ORD-1027,,3.0,29.99,Electronics,Card,Mouse,Unknown,MISSING_DATE
+ORD-1028,2026-01-24,3.0,29.99,Electronics,Cash,Keyboard,90210,
+ORD-1029,,2.0,29.99,Accessories,Card,USB Cable,10001,MISSING_DATE
+ORD-1030,,,29.99,Electronics,Card,Mouse,Unknown,MISSING_QUANTITY
+ORD-1031,,,,,Cash,Headphones,90210,MISSING_CATEGORY
+ORD-1032,,2.0,49.99,Accessories,Mobile,Laptop,Unknown,MISSING_DATE
+ORD-1033,2026-01-03,2.0,49.99,Accessories,Card,Laptop,10001,
+ORD-1034,,3.0,49.99,Electronics,Mobile,USB Cable,Unknown,MISSING_DATE
+ORD-1035,,3.0,29.99,Electronics,,Headphones,Unknown,MISSING_PAYMENT
+ORD-1036,2026-01-11,,99.99,Accessories,Card,Laptop,90210,MISSING_QUANTITY
+ORD-1037,,2.0,,,,Monitor,Unknown,MISSING_PAYMENT
+ORD-1038,,1.0,49.99,Electronics,Mobile,Laptop,10001,MISSING_DATE
+ORD-1039,2026-01-14,,,Accessories,,Keyboard,90210,MISSING_PAYMENT
+ORD-1040,,3.0,49.99,,Cash,Mouse,10001,MISSING_CATEGORY
+ORD-1041,,1.0,29.99,Accessories,Cash,Laptop,10001,MISSING_DATE
+,,3.0,,Electronics,,USB Cable,Unknown,MISSING_PAYMENT
+ORD-1043,2026-01-19,,29.99,Electronics,,USB Cable,Unknown,MISSING_PAYMENT
+ORD-1044,2026-02-26,,99.99,Accessories,Card,Laptop,90210,MISSING_QUANTITY
+ORD-1045,2026-02-02,,99.99,Electronics,Card,Keyboard,10001,MISSING_QUANTITY
+ORD-1046,,,19.99,Electronics,Cash,Monitor,Unknown,MISSING_QUANTITY
+ORD-1047,2026-03-02,3.0,19.99,Accessories,Mobile,Monitor,Unknown,
+ORD-1048,2026-01-26,,99.99,Accessories,Card,Monitor,Unknown,MISSING_QUANTITY
+ORD-1049,2026-02-06,,49.99,Accessories,,Laptop,90210,MISSING_PAYMENT
+,2026-02-17,2.0,29.99,Electronics,Mobile,USB Cable,Unknown,MISSING_ORDER_ID
+,,3.0,19.99,Electronics,,Monitor,10001,MISSING_PAYMENT
+ORD-1052,2026-02-20,2.0,49.99,Electronics,,Laptop,Unknown,MISSING_PAYMENT
+ORD-1053,2026-01-14,,29.99,Electronics,Card,Laptop,Unknown,MISSING_QUANTITY
+ORD-1054,2026-02-23,,49.99,Accessories,Cash,Keyboard,Unknown,MISSING_QUANTITY
+ORD-1055,2026-01-10,3.0,19.99,,Card,Headphones,Unknown,MISSING_CATEGORY
+ORD-1056,2026-02-01,,49.99,Electronics,Mobile,Monitor,10001,MISSING_QUANTITY
+ORD-1057,,3.0,99.99,Electronics,Cash,Headphones,Unknown,MISSING_DATE
+ORD-1058,2026-01-09,,19.99,Electronics,,USB Cable,Unknown,MISSING_PAYMENT
+ORD-1059,,,,Electronics,Card,Headphones,90210,MISSING_PRICE
+ORD-1060,2026-01-20,,99.99,Accessories,Cash,Mouse,10001,MISSING_QUANTITY
+ORD-1061,,,19.99,Electronics,Card,Laptop,Unknown,MISSING_QUANTITY
+ORD-1062,2026-02-25,1.0,19.99,Electronics,Mobile,Mouse,90210,
+ORD-1063,2026-02-25,1.0,,Electronics,Card,Keyboard,90210,MISSING_PRICE
+ORD-1064,2026-01-08,2.0,,Accessories,Mobile,Laptop,90210,MISSING_PRICE
+ORD-1065,2026-02-17,2.0,99.99,Electronics,Mobile,Headphones,10001,
+ORD-1066,2026-01-14,,29.99,,,Monitor,Unknown,MISSING_PAYMENT
+ORD-1067,,,99.99,Accessories,Card,USB Cable,Unknown,MISSING_QUANTITY
+ORD-1068,2026-02-02,,19.99,,Card,Headphones,90210,MISSING_CATEGORY
+ORD-1069,2026-02-05,2.0,99.99,Accessories,Cash,USB Cable,90210,
+ORD-1070,2026-01-23,,,,Card,Headphones,90210,MISSING_CATEGORY
+ORD-1071,2026-01-20,,19.99,Accessories,Cash,Laptop,Unknown,MISSING_QUANTITY
+ORD-1072,2026-02-08,,99.99,Accessories,Card,USB Cable,10001,MISSING_QUANTITY
+ORD-1073,,3.0,99.99,,Card,Laptop,Unknown,MISSING_CATEGORY
+,2026-01-22,1.0,19.99,Accessories,Card,Mouse,90210,MISSING_ORDER_ID
+ORD-1075,2026-02-08,2.0,,Accessories,Mobile,Keyboard,90210,MISSING_PRICE
+ORD-1076,2026-01-04,3.0,49.99,,Card,Laptop,10001,MISSING_CATEGORY
+ORD-1077,2026-02-09,3.0,29.99,Accessories,Card,USB Cable,Unknown,
+ORD-1078,2026-02-12,3.0,29.99,Electronics,,Laptop,Unknown,MISSING_PAYMENT
+ORD-1079,2026-02-05,,29.99,Electronics,,USB Cable,Unknown,MISSING_PAYMENT
+ORD-1080,,,29.99,,Cash,Keyboard,Unknown,MISSING_CATEGORY
+ORD-1081,,2.0,,Accessories,Card,Monitor,Unknown,MISSING_PRICE
+ORD-1082,2026-02-22,2.0,,,,Monitor,90210,MISSING_PAYMENT
+ORD-1083,,1.0,,Electronics,Mobile,USB Cable,Unknown,MISSING_PRICE
+ORD-1084,,3.0,99.99,Accessories,Card,Headphones,90210,MISSING_DATE
+ORD-1085,2026-01-27,,29.99,Electronics,Card,Mouse,Unknown,MISSING_QUANTITY
+ORD-1086,2026-02-13,,99.99,Accessories,Cash,Headphones,90210,MISSING_QUANTITY
+ORD-1087,,2.0,,,,Mouse,Unknown,MISSING_PAYMENT
+ORD-1088,2026-02-26,1.0,,Accessories,,Laptop,Unknown,MISSING_PAYMENT
+ORD-1089,,1.0,,Electronics,Card,Headphones,Unknown,MISSING_PRICE
+ORD-1090,2026-01-24,1.0,49.99,Electronics,Card,Monitor,Unknown,
+,2026-03-01,,99.99,Electronics,,Mouse,Unknown,MISSING_PAYMENT
+ORD-1092,2026-02-19,,29.99,Accessories,Card,Mouse,10001,MISSING_QUANTITY
+ORD-1093,,3.0,19.99,Accessories,Card,Laptop,10001,MISSING_DATE
+ORD-1094,2026-02-21,2.0,19.99,Electronics,,USB Cable,10001,MISSING_PAYMENT
+ORD-1095,2026-02-14,3.0,,,Mobile,Monitor,90210,MISSING_CATEGORY
+ORD-1096,2026-02-15,1.0,29.99,Accessories,Cash,Monitor,Unknown,
+ORD-1097,2026-01-20,,99.99,Electronics,Card,Monitor,90210,MISSING_QUANTITY
+ORD-1098,,1.0,,Accessories,Card,Keyboard,Unknown,MISSING_PRICE
+ORD-1099,2026-01-21,,49.99,Accessories,Cash,Keyboard,90210,MISSING_QUANTITY
+ORD-1100,2026-01-16,,,Accessories,,Laptop,Unknown,MISSING_PAYMENT
+ORD-1101,2026-01-24,3.0,49.99,,Mobile,USB Cable,Unknown,MISSING_CATEGORY
+ORD-1102,2026-01-13,1.0,49.99,,Cash,Monitor,10001,MISSING_CATEGORY
+ORD-1103,,3.0,49.99,Accessories,Card,Monitor,10001,MISSING_DATE
+ORD-1104,2026-02-06,1.0,99.99,Accessories,Cash,Laptop,Unknown,
+ORD-1105,2026-01-12,,99.99,Accessories,Card,Laptop,Unknown,MISSING_QUANTITY
+ORD-1106,2026-02-03,1.0,49.99,Accessories,Card,Monitor,Unknown,
+ORD-1107,2026-02-14,,19.99,Accessories,Mobile,Monitor,10001,MISSING_QUANTITY
+ORD-1108,,1.0,29.99,,,Mouse,Unknown,MISSING_PAYMENT
+ORD-1109,,,29.99,,Cash,Keyboard,10001,MISSING_CATEGORY
+ORD-1110,2026-02-02,,19.99,Accessories,Cash,Mouse,90210,MISSING_QUANTITY
+ORD-1111,,1.0,99.99,Accessories,,Laptop,10001,MISSING_PAYMENT
+ORD-1112,2026-02-05,,19.99,Electronics,Mobile,Mouse,Unknown,MISSING_QUANTITY
+,,,19.99,Accessories,Card,Monitor,Unknown,MISSING_QUANTITY
+,2026-01-04,,,Electronics,Card,Laptop,Unknown,MISSING_PRICE
+ORD-1115,2026-02-09,,99.99,Electronics,,USB Cable,Unknown,MISSING_PAYMENT
+,2026-02-14,,29.99,Accessories,Card,Mouse,Unknown,MISSING_QUANTITY
+,2026-01-06,,49.99,Electronics,Mobile,Headphones,10001,MISSING_QUANTITY
+ORD-1118,,1.0,29.99,Electronics,Cash,Mouse,10001,MISSING_DATE
+ORD-1119,,1.0,99.99,Electronics,,USB Cable,Unknown,MISSING_PAYMENT
+ORD-1120,2026-02-08,2.0,49.99,Electronics,Mobile,Monitor,90210,
+ORD-1121,,,99.99,Accessories,Card,Monitor,10001,MISSING_QUANTITY
+ORD-1122,2026-02-08,3.0,29.99,Electronics,,Monitor,10001,MISSING_PAYMENT
+,2026-02-24,1.0,49.99,Accessories,,Keyboard,Unknown,MISSING_PAYMENT
+,2026-02-06,,49.99,Electronics,Cash,Headphones,Unknown,MISSING_QUANTITY
+ORD-1125,,,,Accessories,Cash,Headphones,Unknown,MISSING_PRICE
+ORD-1126,2026-01-10,3.0,19.99,Electronics,Mobile,USB Cable,10001,
+ORD-1127,2026-02-28,,29.99,,,Monitor,Unknown,MISSING_PAYMENT
+ORD-1128,2026-02-06,3.0,19.99,Electronics,,Keyboard,Unknown,MISSING_PAYMENT
+ORD-1129,,3.0,99.99,Electronics,Cash,Monitor,10001,MISSING_DATE
+ORD-1130,2026-01-10,,49.99,Accessories,,USB Cable,Unknown,MISSING_PAYMENT
+ORD-1131,2026-02-16,1.0,99.99,,Card,Headphones,10001,MISSING_CATEGORY
+ORD-1132,2026-02-18,,29.99,Accessories,Card,Keyboard,10001,MISSING_QUANTITY
+ORD-1133,,2.0,,Electronics,Card,Mouse,Unknown,MISSING_PRICE
+ORD-1134,2026-01-08,2.0,49.99,Accessories,Mobile,USB Cable,Unknown,
+,2026-02-04,,29.99,,Card,Monitor,Unknown,MISSING_CATEGORY
+ORD-1136,2026-01-30,,49.99,Accessories,Cash,USB Cable,10001,MISSING_QUANTITY
+ORD-1137,2026-01-08,3.0,,,Mobile,USB Cable,10001,MISSING_CATEGORY
+ORD-1138,2026-01-23,,99.99,,Mobile,USB Cable,Unknown,MISSING_CATEGORY
+ORD-1139,2026-01-21,,49.99,Electronics,Card,USB Cable,Unknown,MISSING_QUANTITY
+ORD-1140,,2.0,19.99,Accessories,Cash,Laptop,Unknown,MISSING_DATE
+ORD-1141,2026-01-29,,19.99,Electronics,Card,Mouse,Unknown,MISSING_QUANTITY
+ORD-1142,2026-02-16,2.0,99.99,Accessories,,Mouse,Unknown,MISSING_PAYMENT
+ORD-1143,2026-01-12,,,Electronics,Card,Headphones,90210,MISSING_PRICE
+ORD-1144,,2.0,99.99,,Card,Laptop,Unknown,MISSING_CATEGORY
+ORD-1145,,,99.99,Electronics,Card,Headphones,90210,MISSING_QUANTITY
+ORD-1146,2026-01-24,1.0,49.99,Electronics,Card,USB Cable,Unknown,
+ORD-1147,2026-02-25,3.0,49.99,Accessories,,Mouse,90210,MISSING_PAYMENT
+ORD-1148,,,49.99,,Cash,Headphones,Unknown,MISSING_CATEGORY
+ORD-1149,2026-02-17,,49.99,Accessories,Cash,USB Cable,Unknown,MISSING_QUANTITY
+ORD-1150,2026-02-10,3.0,,Accessories,Card,USB Cable,10001,MISSING_PRICE
+,,,,Accessories,Cash,Laptop,Unknown,MISSING_PRICE
+,,3.0,,Accessories,,Keyboard,10001,MISSING_PAYMENT
+ORD-1153,,,,,Card,Mouse,10001,MISSING_CATEGORY
+ORD-1154,2026-01-02,1.0,,Accessories,Card,USB Cable,Unknown,MISSING_PRICE
+,2026-02-28,,,,Mobile,USB Cable,10001,MISSING_CATEGORY
+ORD-1156,2026-02-14,3.0,49.99,Electronics,Card,Monitor,Unknown,
+ORD-1157,2026-02-01,1.0,19.99,,Cash,Monitor,Unknown,MISSING_CATEGORY
+ORD-1158,2026-02-08,1.0,19.99,Electronics,Card,Mouse,10001,
+ORD-1159,,,29.99,Electronics,,Laptop,90210,MISSING_PAYMENT
+ORD-1160,2026-01-08,1.0,99.99,Accessories,Card,Headphones,Unknown,
+ORD-1161,2026-02-24,3.0,,Accessories,Mobile,Keyboard,90210,MISSING_PRICE
+ORD-1162,2026-02-10,2.0,99.99,Accessories,,Monitor,Unknown,MISSING_PAYMENT
+,,3.0,99.99,Accessories,Mobile,USB Cable,Unknown,MISSING_DATE
+,2026-02-06,1.0,99.99,Electronics,Cash,USB Cable,90210,MISSING_ORDER_ID
+ORD-1165,2026-01-12,,99.99,Accessories,Mobile,Headphones,Unknown,MISSING_QUANTITY
+,2026-01-25,,49.99,Electronics,,Mouse,Unknown,MISSING_PAYMENT
+ORD-1167,,,,Accessories,,Laptop,Unknown,MISSING_PAYMENT
+ORD-1168,2026-02-18,,49.99,Electronics,Mobile,Headphones,Unknown,MISSING_QUANTITY
+ORD-1169,2026-02-06,2.0,49.99,Electronics,Card,USB Cable,10001,
+ORD-1170,2026-01-10,3.0,19.99,,Mobile,USB Cable,90210,MISSING_CATEGORY
+ORD-1171,,3.0,99.99,Accessories,Cash,Keyboard,10001,MISSING_DATE
+,2026-01-24,,99.99,Electronics,Card,Laptop,Unknown,MISSING_QUANTITY
+ORD-1173,,3.0,49.99,Accessories,Card,USB Cable,Unknown,MISSING_DATE
+ORD-1174,2026-01-15,,99.99,Accessories,Cash,Keyboard,10001,MISSING_QUANTITY
+ORD-1175,,3.0,99.99,Electronics,Cash,USB Cable,10001,MISSING_DATE
+,2026-01-24,,,Accessories,Card,Mouse,Unknown,MISSING_PRICE
+ORD-1177,2026-01-15,,29.99,Accessories,,Keyboard,Unknown,MISSING_PAYMENT
+ORD-1178,2026-02-23,,,Accessories,Card,Laptop,Unknown,MISSING_PRICE
+ORD-1179,2026-01-29,,49.99,Accessories,Cash,Keyboard,10001,MISSING_QUANTITY
+ORD-1180,2026-02-11,1.0,49.99,,Mobile,Monitor,Unknown,MISSING_CATEGORY
+,2026-01-17,2.0,19.99,Accessories,Card,Mouse,90210,MISSING_ORDER_ID
+ORD-1182,2026-01-29,,29.99,Electronics,Cash,Keyboard,10001,MISSING_QUANTITY
+ORD-1183,2026-02-06,2.0,29.99,Electronics,,Monitor,90210,MISSING_PAYMENT
+ORD-1184,2026-02-28,,29.99,Electronics,,Monitor,90210,MISSING_PAYMENT
+ORD-1185,2026-03-01,,29.99,Accessories,Mobile,Monitor,Unknown,MISSING_QUANTITY
+ORD-1186,2026-01-26,2.0,29.99,,,Keyboard,Unknown,MISSING_PAYMENT
+ORD-1187,2026-01-05,3.0,,Accessories,Cash,Keyboard,10001,MISSING_PRICE
+,2026-03-01,2.0,19.99,,Mobile,Mouse,Unknown,MISSING_CATEGORY
+ORD-1189,2026-01-10,3.0,,,Mobile,Mouse,10001,MISSING_CATEGORY
+ORD-1190,2026-01-19,,,Accessories,Card,Keyboard,Unknown,MISSING_PRICE
+ORD-1191,2026-01-30,2.0,19.99,Accessories,Mobile,Keyboard,90210,
+ORD-1192,2026-01-28,1.0,19.99,Electronics,Card,Mouse,Unknown,
+ORD-1193,2026-01-29,3.0,49.99,,,Mouse,90210,MISSING_PAYMENT
+ORD-1194,2026-02-07,1.0,19.99,Electronics,Cash,Laptop,90210,
+,,,,Electronics,Cash,Mouse,90210,MISSING_PRICE
+ORD-1196,2026-02-26,,99.99,Electronics,,Laptop,Unknown,MISSING_PAYMENT
+ORD-1197,2026-01-15,,19.99,Accessories,Card,Mouse,90210,MISSING_QUANTITY
+ORD-1198,2026-02-08,2.0,49.99,Electronics,,Laptop,Unknown,MISSING_PAYMENT
+,,1.0,,Electronics,Card,Headphones,Unknown,MISSING_PRICE
