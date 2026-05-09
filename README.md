@@ -8,7 +8,6 @@ A defensive Python engine built to transform fragmented retail datasets into **A
 * **Deterministic Renaming:** Standardizes messy retail columns into a unified schema for reliable downstream analysis.
 * **Forensic Currency Handling:** Applies a Silver-Layer normalization pass to fractured currency strings before coercion.
 * **Gold / S5 Bifurcation:** Clean rows are promoted to a Gold Layer output; rows with unresolvable `unit_price` values are quarantined in the S5 Forensic Buffer.
-* **Loss Projection:** `loss_projection.py` reads the Gold Layer and projects multi-year revenue loss caused by a measurable event (e.g., a bad review).
 * **Structural Integrity Auditing:** Every run produces a Batch Health report flagging schema drift and missing value saturation.
 
 ## 🚀 Use Case
@@ -42,7 +41,6 @@ csv_cleanup_pipeline_v2/
 |-- electronics_config.py      # Active dataset config
 |-- data_dictionary.py         # Generates column-level data dictionary
 |-- head_tail.py               # Previews top/bottom rows
-|-- loss_projection.py         # Phase 3 forensic loss projection
 |-- run_cleanup.py             # Entry point — swap config import here
 |-- summary_stats.py           # Numeric and categorical summary stats
 |-- cleanup_output.txt         # Captured console output from last run
@@ -84,7 +82,6 @@ From the project folder:
 python run_cleanup.py
 python head_tail.py
 python data_dictionary.py
-python loss_projection.py
 ```
 
 To switch datasets, change the config import at the top of `run_cleanup.py`:
@@ -113,7 +110,6 @@ Latest verified behavior:
 - normalized headers: order_id, sale_date, quantity, unit_price, category, payment_method, item_name, customer_zip
 - Gold Layer and S5 Forensic Buffer bifurcated on `unit_price` validity
 - data dictionary generated successfully via `data_dictionary.py`
-- loss projection script (`loss_projection.py`) reads Gold Layer and projects revenue loss over a configurable window
 
 ---
 
@@ -128,5 +124,3 @@ Latest verified behavior:
 - Symptom: many `NaN` values in `unit_price` after cleanup. Fix: source values likely contained non-numeric characters; review raw values and adjust `s5_threshold` in the config if needed.
 
 - Symptom: dates become missing (`NaT` before export). Fix: source date values failed parsing; check mixed formats in the input and confirm the target column is listed in `date_columns`.
-
-- Symptom: loss projection raises `ValueError` about REVIEW_DATE. Fix: ensure `REVIEW_DATE` in `loss_projection.py` falls within the date range of the Gold Layer data.
